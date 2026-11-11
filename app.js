@@ -7,9 +7,9 @@ const passport = require('./config/passport')
 const express = require('express')
 const app = express()
 
-app.get('/teste', (req, res) => {
-    res.send('Express funcionando');
-});
+// app.get('/teste', (req, res) => {
+//     res.send('Express funcionando');
+// });
 
 app.use(session({
     name: 'sid',
@@ -40,10 +40,10 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
-    console.log('REQUISIÇÃO:', req.method, req.url);
-    next();
-});
+// app.use((req, res, next) => {
+//     console.log('REQUISIÇÃO:', req.method, req.url);
+//     next();
+// });
 
 app.use('/', require('./routes/auth'));
 app.use('/', require('./routes/index'));
@@ -60,9 +60,12 @@ async function iniciar(){
     }
 }
 
-console.log('Auth:', require('./routes/auth').stack.map(r => ({
-    path: r.route?.path,
-    methods: r.route?.methods
-})));
+// console.log('Auth:', require('./routes/auth').stack.map(r => ({
+//     path: r.route?.path,
+//     methods: r.route?.methods
+// })
+
+// )
+// );
 
 iniciar();
